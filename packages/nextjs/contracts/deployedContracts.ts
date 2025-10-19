@@ -6,30 +6,48 @@ import { GenericContractsDeclaration } from "~~/utils/helper/contract";
 
 const deployedContracts = {
   11155111: {
-    FHECounter: {
-      address: "0xead137D42d2E6A6a30166EaEf97deBA1C3D1954e",
+    FHEFoodVote: {
+      address: "0x3579AbcC902c5e59B89ba46d5abc31d765fD95BE",
       abi: [
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "voter",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "country",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "foodId",
+              type: "uint256",
+            },
+          ],
+          name: "FoodVoted",
+          type: "event",
+        },
         {
           inputs: [
             {
-              internalType: "externalEuint32",
-              name: "inputEuint32",
-              type: "bytes32",
+              internalType: "string",
+              name: "country",
+              type: "string",
             },
             {
-              internalType: "bytes",
-              name: "inputProof",
-              type: "bytes",
+              internalType: "uint256",
+              name: "foodId",
+              type: "uint256",
             },
           ],
-          name: "decrement",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "getCount",
+          name: "getEncryptedVotes",
           outputs: [
             {
               internalType: "euint32",
@@ -43,19 +61,25 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "externalEuint32",
-              name: "inputEuint32",
-              type: "bytes32",
+              internalType: "address",
+              name: "",
+              type: "address",
             },
             {
-              internalType: "bytes",
-              name: "inputProof",
-              type: "bytes",
+              internalType: "string",
+              name: "",
+              type: "string",
             },
           ],
-          name: "increment",
-          outputs: [],
-          stateMutability: "nonpayable",
+          name: "hasVoted",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
           type: "function",
         },
         {
@@ -69,6 +93,34 @@ const deployedContracts = {
             },
           ],
           stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "country",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "foodId",
+              type: "uint256",
+            },
+            {
+              internalType: "externalEuint32",
+              name: "encryptedVote",
+              type: "bytes32",
+            },
+            {
+              internalType: "bytes",
+              name: "proof",
+              type: "bytes",
+            },
+          ],
+          name: "vote",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
       ],
