@@ -1,6 +1,20 @@
-# FHEVM React Template
+# 🍕 FHEFoodVote
 
-A minimal React frontend template for building FHEVM-enabled decentralized applications (dApps). This template provides a simple development interface for interacting with FHEVM smart contracts, specifically the `FHECounter.sol` contract.
+A minimal React frontend template for building **FHEVM-enabled voting dApps**.  
+This project demonstrates a **privacy-preserving decentralized food voting application** built on top of the **Fully Homomorphic Encryption Virtual Machine (FHEVM)**.
+
+With this dApp, users can:
+- 🌍 Choose their country and vote for their favorite local food.  
+- 🔐 Encrypt their vote directly in the browser before submitting it — ensuring complete privacy.  
+- 🧮 Have their encrypted vote securely stored and aggregated on-chain without ever being decrypted.  
+
+The smart contract `FHEFoodVote.sol` handles all votes in encrypted form, while the React frontend provides an intuitive interface for wallet connection, encryption, and transaction submission.  
+
+This template serves as a starting point for developers who want to build **FHE-based decentralized applications**, integrating:
+- End-to-end encrypted user interactions.  
+- On-chain computation on encrypted data.  
+- Seamless FHEVM + React integration.  
+
 
 ## 🚀 What is FHEVM?
 
@@ -23,6 +37,17 @@ Before you begin, ensure you have:
 - **pnpm** package manager
 - **MetaMask** browser extension
 - **Git** for cloning the repository
+
+
+**Contract:** `FHEFoodVote.sol`  
+**Network Config:** `SepoliaConfig` (Zama FHEVM Testnet)
+
+### Main Functions
+
+| Function | Description |
+|-----------|--------------|
+| `vote(string country, uint256 foodId, externalEuint32 encryptedVote, bytes proof)` | Cast an encrypted vote for a given food and country. |
+| `getEncryptedVotes(string country, uint256 foodId)` | Returns the encrypted vote count (cannot be read in plaintext). |
 
 ## 🛠️ Quick Start
 
@@ -134,8 +159,8 @@ fhevm-react-template/
 
 ### Key Components
 
-#### 🔗 FHEVM Integration (`packages/nextjs/hooks/fhecounter-example/`)
-- **`useFHECounterWagmi.tsx`**: Example hook demonstrating FHEVM contract interaction
+#### 🔗 FHEVM Integration (`packages/nextjs/hooks`)
+- **`useFHEFoodVoteWagmi.tsx`**: Example hook demonstrating FHEVM contract interaction
 - Essential hooks for FHEVM-enabled smart contract communication
 - Easily copyable to any FHEVM + React project
 

@@ -5,7 +5,7 @@ import "~~/styles/globals.css";
 import { getMetadata } from "~~/utils/helper/getMetadata";
 
 export const metadata = getMetadata({
-  title: "Zama Template",
+  title: "FHE Food Voting",
   description: "Built with FHEVM",
 });
 

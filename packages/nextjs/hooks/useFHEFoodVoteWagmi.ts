@@ -5,7 +5,6 @@ import { useDeployedContractInfo } from "./helper";
 import { useWagmiEthers } from "./wagmi/useWagmiEthers";
 import { FhevmInstance } from "@fhevm-sdk";
 import {
-  buildParamsFromAbi,
   getEncryptionMethod,
   useFHEDecrypt,
   useFHEEncryption,
@@ -56,7 +55,7 @@ export const useFHEFoodVoteWagmi = (parameters: {
     address: hasContract ? (fheFoodVote!.address as `0x${string}`) : undefined,
     abi: hasContract ? ((fheFoodVote as FHEFoodVoteInfo).abi as any) : undefined,
     functionName: "getEncryptedVotes" as const,
-    args: [country, foodId],
+    args: [accounts ? accounts[0] : '', country],
     query: {
       enabled: Boolean(hasContract && hasProvider && country && foodId),
       refetchOnWindowFocus: false,

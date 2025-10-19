@@ -32,7 +32,7 @@ export interface FHEFoodVoteInterface extends Interface {
 
   encodeFunctionData(
     functionFragment: "getEncryptedVotes",
-    values: [string, BigNumberish]
+    values: [AddressLike, string]
   ): string;
   encodeFunctionData(
     functionFragment: "hasVoted",
@@ -118,7 +118,7 @@ export interface FHEFoodVote extends BaseContract {
   ): Promise<this>;
 
   getEncryptedVotes: TypedContractMethod<
-    [country: string, foodId: BigNumberish],
+    [user: AddressLike, country: string],
     [string],
     "view"
   >;
@@ -149,7 +149,7 @@ export interface FHEFoodVote extends BaseContract {
   getFunction(
     nameOrSignature: "getEncryptedVotes"
   ): TypedContractMethod<
-    [country: string, foodId: BigNumberish],
+    [user: AddressLike, country: string],
     [string],
     "view"
   >;

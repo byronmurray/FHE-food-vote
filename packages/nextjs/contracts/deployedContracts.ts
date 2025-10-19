@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/helper/contract";
 const deployedContracts = {
   11155111: {
     FHEFoodVote: {
-      address: "0x3579AbcC902c5e59B89ba46d5abc31d765fD95BE",
+      address: "0x506f1688c468c103C3cf95123d85fEe6F01CEACE",
       abi: [
         {
           anonymous: false,
@@ -37,14 +37,14 @@ const deployedContracts = {
         {
           inputs: [
             {
+              internalType: "address",
+              name: "user",
+              type: "address",
+            },
+            {
               internalType: "string",
               name: "country",
               type: "string",
-            },
-            {
-              internalType: "uint256",
-              name: "foodId",
-              type: "uint256",
             },
           ],
           name: "getEncryptedVotes",
