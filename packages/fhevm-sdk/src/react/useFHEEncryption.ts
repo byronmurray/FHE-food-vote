@@ -46,6 +46,7 @@ export const toHex = (value: Uint8Array | string): `0x${string}` => {
 
 // Build contract params from EncryptResult and ABI for a given function
 export const buildParamsFromAbi = (enc: EncryptResult, abi: any[], functionName: string): any[] => {
+  console.log('qwe')
   const fn = abi.find((item: any) => item.type === "function" && item.name === functionName);
   if (!fn) throw new Error(`Function ABI not found for ${functionName}`);
 

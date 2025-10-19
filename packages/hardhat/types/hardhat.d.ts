@@ -49,6 +49,10 @@ declare module "hardhat/types/runtime" {
       name: "FHECounter",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.FHECounter__factory>;
+    getContractFactory(
+      name: "FHEFoodVote",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.FHEFoodVote__factory>;
 
     getContractAt(
       name: "EthereumConfig",
@@ -95,6 +99,11 @@ declare module "hardhat/types/runtime" {
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.FHECounter>;
+    getContractAt(
+      name: "FHEFoodVote",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.FHEFoodVote>;
 
     deployContract(
       name: "EthereumConfig",
@@ -132,6 +141,10 @@ declare module "hardhat/types/runtime" {
       name: "FHECounter",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.FHECounter>;
+    deployContract(
+      name: "FHEFoodVote",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.FHEFoodVote>;
 
     deployContract(
       name: "EthereumConfig",
@@ -178,6 +191,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.FHECounter>;
+    deployContract(
+      name: "FHEFoodVote",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.FHEFoodVote>;
 
     // default types
     getContractFactory(
